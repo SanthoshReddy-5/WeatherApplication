@@ -1,0 +1,348 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("./assets/background.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Roboto;
+}
+
+.navBar {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBarContent {
+    width: 60%;
+    position: relative;
+}
+
+input {
+    border-radius: 25px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+.searchIcon:hover {
+    cursor: pointer;
+}
+
+.mainContent {
+    height: 90vh;
+    display: flex;
+    color: white;
+}
+
+.leftContent {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-around;
+}
+
+.currentTemp {
+    width: 80%;
+    height: 45%;
+    background-color: rgba(212, 212, 212, 0.4);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.currentTemp h5 {
+    font-size: 35px;
+}
+
+.currentTemp p {
+    font-size: 25px;
+}
+
+.displayDate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calendarIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.displayTime {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.clockIcon {
+    width: 30px;
+    height: 30px;
+}
+
+
+.nextFiveDays {
+    width: 80%;
+    height: 40%;
+    background-color: rgba(212, 212, 212, 0.4);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.fiveDaysIcon {
+    width: 25px;
+    height: 25px;
+}
+
+.nextFiveDays h5 {
+    font-size: 30px;
+}
+
+.fiveDaysDiv {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fiveDays {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fiveDays p {
+    font-size: 16px;
+}
+
+.rightContent {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.topSection {
+    width: 90%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topChilds {
+    height: 80%;
+    width: 20%;
+    background-color: rgba(212, 212, 212, 0.4);
+    border-radius: 25px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+.topChildIcons {
+    width: 35px;
+    height: 35px;
+}
+
+.topChilds h5 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.topChilds p {
+    font-size: 18px;
+}
+
+
+.midSection {
+    height: 30%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.midChilds {
+    width: 45%;
+    height: 90%;
+    background-color: rgba(212, 212, 212, 0.4);
+    border-radius: 25px;
+    padding: 30px;
+}
+
+.midChilds h5 {
+    font-size: 25px;
+}
+
+.airQuality {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.airQualityDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.airQualityIconDiv {
+    width: 20%;
+}
+
+.airQualityDiv img {
+    width: 50px;
+    height: 50px;
+}
+
+.airQualitySections {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.airQualitySections h6 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.airQualitySections p {
+    font-size: 16px;
+}
+
+.sunCondition {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sunConditionsDiv {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sunConditionsDiv h6 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.sunConditionsDiv p {
+    font-size: 16px;
+}
+
+.sunRiseDiv {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sunRiseDiv img {
+    width: 60px;
+    height: 60px;
+}
+
+.sunSetDiv {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sunSetDiv img {
+    width: 60px;
+    height: 60px;
+}
+
+
+.bottomSection {
+    height: 40%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.today {
+    height: 90%;
+    width: 95%;
+    padding: 30px;
+    background-color: rgba(212, 212, 212, 0.4);
+    border-radius: 25px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.today h5 {
+    font-size: 25px;
+}
+
+.todayDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 70%;
+    width: 80%;
+}
+
+.todayRow {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.todayRow img {
+    width: 40px;
+    height: 40px;
+}
+
+.timeDisp {
+    font-size: 18px;
+}
+
+.tempDisp {
+    font-size: 18px;
+}

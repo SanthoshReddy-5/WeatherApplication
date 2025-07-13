@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navBar">
+        <div class="searchBarContent">
+            <input type="text" class="searchBar" placeholder="Search The City" id="inputField">
+            <img src="./assets/search.png" class="searchIcon" id="searchButton">
+        </div>
+    </div>
+
+    <div class="mainContent">
+        <div class="leftContent">
+            <div class="currentTemp">
+                <h5 id="cityName">City Name</h5>
+                <p id="temperature">0 &deg;C</p>
+                <p id="description">Description</p>
+                <hr>
+                <div class="displayDate">
+                    <img src="./assets/calendar.png" class="calendarIcon">
+                    <p id="currentDate">Date</p>
+                </div>
+                <div class="displayTime">
+                    <img src="./assets/time.png" class="clockIcon">
+                    <p id="currentTime">Time</p>
+                </div>
+            </div>
+            <div class="nextFiveDays">
+                <div>
+                    <h5>Coming 5 Days</h5>
+                </div>
+                <div class="fiveDaysDiv" id="forecastContainer">
+                    <div class="fiveDays">
+                        <div>
+                            <img src="./assets/cloud.png" alt="Cloud Image" class="fiveDaysIcon">
+                        </div>
+                        <p>0 &deg; C</p>
+                        <p>Saturaday</p>
+                        <p>2025-03-20</p>
+                    </div>
+                    <div class="fiveDays">
+                        <div>
+                            <img src="./assets/cloud.png" alt="Cloud Image" class="fiveDaysIcon">
+                        </div>
+                        <p>0 &deg; C</p>
+                        <p>Sunday</p>
+                        <p>2025-03-21</p>
+                    </div>
+                    <div class="fiveDays">
+                        <div>
+                            <img src="./assets/cloud.png" alt="Cloud Image" class="fiveDaysIcon">
+                        </div>
+                        <p>0 &deg; C</p>
+                        <p>Monday</p>
+                        <p>2025-03-22</p>
+                    </div>
+                    <div class="fiveDays">
+                        <div>
+                            <img src="./assets/cloud.png" alt="Cloud Image" class="fiveDaysIcon">
+                        </div>
+                        <p>0 &deg; C</p>
+                        <p>wednesday</p>
+                        <p>2025-03-23</p>
+                    </div>
+                    <div class="fiveDays">
+                        <div>
+                            <img src="./assets/cloud.png" alt="Cloud Image" class="fiveDaysIcon">
+                        </div>
+                        <p>0 &deg; C</p>
+                        <p>Thursday</p>
+                        <p>2025-03-24</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="rightContent">
+            <div class="topSection">
+                <div class="humidity topChilds">
+                    <div>
+                        <img src="./assets/flood.png" alt="Humidity Image" class="topChildIcons">
+                    </div>
+                    <div>
+                        <h5>Humidity</h5>
+                        <p id="displayHumidity">-</p>
+                    </div>
+                </div>
+                <div class="pressure topChilds">
+                    <div>
+                        <img src="./assets/pressure.png" alt="Pressure Image" class="topChildIcons">
+                    </div>
+                    <div>
+                        <h5>Pressure</h5>
+                        <p id="displayPressure">-</p>
+                    </div>
+                </div>
+                <div class="feelsLike topChilds">
+                    <div>
+                        <img src="./assets/hot.png" alt="Temperature Image" class="topChildIcons">
+                    </div>
+                    <div>
+                        <h5>Feels Like</h5>
+                        <p id="displayFeelsLike">-</p>
+                    </div>
+                </div>
+                <div class="visiblity topChilds">
+                    <div>
+                        <img src="./assets/eye.png" alt="Visibility Image" class="topChildIcons">
+                    </div>
+                    <div>
+                        <h5>Visibility</h5>
+                        <p id="displayVisibility">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="midSection">
+                <div class="airQuality midChilds">
+                    <div>
+                        <h5>Air Quality Index (AQI)</h5>
+                    </div>
+                    <div class="airQualityDiv">
+                        <div class="airQualityIconDiv">
+                            <img src="assets/wind.png" alt="Air Quality Image" class="midChildIcons">
+                        </div>
+                        <div class="airQualitySections">
+                            <div>
+                                <h6>CO</h6>
+                                <p id="displayCO">-</p>
+                            </div>
+                            <div>
+                                <h6>SO2</h6>
+                                <p id="displaySO2">-</p>
+                            </div>
+                            <div>
+                                <h6>O3</h6>
+                                <p id="displayO3">-</p>
+                            </div>
+                            <div>
+                                <h6>NO2</h6>
+                                <p id="displayNO2">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sunCondition midChilds">
+                    <div>
+                        <h5>Sunrise & Sunset</h5>
+                    </div>
+                    <div class="sunConditionsDiv">
+                        <div class="sunRiseDiv">
+                            <div>
+                                <img src="./assets/sun.png" alt="Sunrise Image" class="sunIcon">
+                            </div>
+                            <div>
+                                <h6>Sunrise</h6>
+                                <p id="displaySunriseTime">- : -- Am</p>
+                            </div>
+                        </div>
+                        <div class="sunSetDiv">
+                            <div>
+                                <img src="./assets/moon.png" alt="Sunset Image" class="moonIcon">
+                            </div>
+                            <div>
+                                <h6>Sunset</h6>
+                                <p id="displaySunsetTime">- : -- Pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottomSection">
+                <div class="today">
+                    <div>
+                        <h5>Today</h5>
+                    </div>
+                    <div class="todayDiv" id="todayTempContainer">
+                        <div class="todayRow">
+                            <p class="timeDisp">9:00 Am</p>
+                            <div>
+                                <img src="./assets/cloudy.png" alt="Today Conditions" class="todayIcon">
+                            </div>
+                            <p class="tempDisp">31.0 &deg; C</p>
+                        </div>
+                        <div class="todayRow">
+                            <p class="timeDisp">9:00 Am</p>
+                            <div>
+                                <img src="./assets/cloudy.png" alt="Today Conditions" class="todayIcon">
+                            </div>
+                            <p class="tempDisp">31.0 &deg; C</p>
+                        </div>
+                        <div class="todayRow">
+                            <p class="timeDisp">9:00 Am</p>
+                            <div>
+                                <img src="./assets/cloudy.png" alt="Today Conditions" class="todayIcon">
+                            </div>
+                            <p class="tempDisp">31.0 &deg; C</p>
+                        </div>
+                        <div class="todayRow">
+                            <p class="timeDisp">9:00 Am</p>
+                            <div>
+                                <img src="./assets/cloudy.png" alt="Today Conditions" class="todayIcon">
+                            </div>
+                            <p class="tempDisp">31.0 &deg; C</p>
+                        </div>
+                        <div class="todayRow">
+                            <p class="timeDisp">9:00 Am</p>
+                            <div>
+                                <img src="./assets/cloudy.png" alt="Today Conditions" class="todayIcon">
+                            </div>
+                            <p class="tempDisp">31.0 &deg; C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
