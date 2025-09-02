@@ -2,7 +2,8 @@
 The Weather Application is a user-friendly web app that provides real-time weather information for any city. It fetches data using the OpenWeather API and displays current weather details like temperature, humidity, and weather conditions.
 
 ## 📸 Screenshots
-![Screenshot 2025-03-24 144248](https://github.com/user-attachments/assets/5443e42d-5e4c-483c-b1d8-f237b0205b55)
+<img width="1899" height="920" alt="image" src="https://github.com/user-attachments/assets/7fea49a6-ea8a-44df-b884-171d963e9e2b" />
+
 
 ## ✨ Features
   - 🌡️ Get real-time weather updates for any city.
