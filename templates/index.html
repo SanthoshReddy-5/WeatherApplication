@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navBar">
+        <div class="searchBarContent">
+            <input type="text" class="searchBar" placeholder="Search The City" id="inputField">
+            <img src="{{ url_for('static', filename='images/search.png') }}" class="searchIcon" id="searchButton">
+        </div>
+    </div>
+
+    <div class="mainContent">
+        <div class="leftContent">
+            <div class="currentTemp glass-card">
+                <h5 id="cityName">City Name</h5>
+                <p id="temperature">-- &deg;C</p>
+                <p id="description">Weather condition</p>
+                <hr>
+                <div class="displayDate">
+                    <img src="{{ url_for('static', filename='images/calendar.png') }}" class="calendarIcon">
+                    <p id="currentDate">Date</p>
+                </div>
+                <div class="displayTime">
+                    <img src="{{ url_for('static', filename='images/time.png') }}" class="clockIcon">
+                    <p id="currentTime">Time</p>
+                </div>
+            </div>
+            
+            <div class="nextFiveDays glass-card">
+                <h5>5-Day Forecast</h5>
+                <div class="fiveDaysDiv" id="forecastContainer">
+                    <div class="fiveDays">
+                        <img src="{{ url_for('static', filename='images/cloud.png') }}" class="fiveDaysIcon">
+                        <p>-- &deg;C</p>
+                        <p>Day</p>
+                        <p>Date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightContent">
+            <div class="topSection">
+                <div class="humidity topChilds glass-card">
+                    <img src="{{ url_for('static', filename='images/flood.png') }}" class="topChildIcons">
+                    <div>
+                        <h5>Humidity</h5>
+                        <p id="displayHumidity">--%</p>
+                    </div>
+                </div>
+                <div class="pressure topChilds glass-card">
+                    <img src="{{ url_for('static', filename='images/pressure.png') }}" class="topChildIcons">
+                    <div>
+                        <h5>Pressure</h5>
+                        <p id="displayPressure">-- hPa</p>
+                    </div>
+                </div>
+                <div class="feelsLike topChilds glass-card">
+                    <img src="{{ url_for('static', filename='images/hot.png') }}" class="topChildIcons">
+                    <div>
+                        <h5>Feels Like</h5>
+                        <p id="displayFeelsLike">-- &deg;C</p>
+                    </div>
+                </div>
+                <div class="visiblity topChilds glass-card">
+                    <img src="{{ url_for('static', filename='images/eye.png') }}" class="topChildIcons">
+                    <div>
+                        <h5>Visibility</h5>
+                        <p id="displayVisibility">-- Km</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="midSection">
+                <div class="airQuality midChilds glass-card">
+                    <h5>Air Quality Index</h5>
+                    <div class="airQualityDiv">
+                        <img src="{{ url_for('static', filename='images/wind.png') }}" class="midChildIcons">
+                        <div class="airQualitySections">
+                            <div>
+                                <h6>CO</h6>
+                                <p id="displayCO">--</p>
+                            </div>
+                            <div>
+                                <h6>SO2</h6>
+                                <p id="displaySO2">--</p>
+                            </div>
+                            <div>
+                                <h6>O3</h6>
+                                <p id="displayO3">--</p>
+                            </div>
+                            <div>
+                                <h6>NO2</h6>
+                                <p id="displayNO2">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sunCondition midChilds glass-card">
+                    <h5>Sunrise & Sunset</h5>
+                    <div class="sunConditionsDiv">
+                        <div class="sunRiseDiv">
+                            <img src="{{ url_for('static', filename='images/sun.png') }}" class="sunIcon">
+                            <div>
+                                <h6>Sunrise</h6>
+                                <p id="displaySunriseTime">--:-- AM</p>
+                            </div>
+                        </div>
+                        <div class="sunSetDiv">
+                            <img src="{{ url_for('static', filename='images/moon.png') }}" class="moonIcon">
+                            <div>
+                                <h6>Sunset</h6>
+                                <p id="displaySunsetTime">--:-- PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottomSection glass-card today">
+                <h5>Hourly Forecast</h5>
+                <div class="todayDiv" id="todayTempContainer">
+                    <div class="todayRow">
+                        <p class="timeDisp">--:--</p>
+                        <img src="{{ url_for('static', filename='images/cloudy.png') }}" class="todayIcon">
+                        <p class="tempDisp">-- &deg;C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="errorModal" class="modal">
+        <div class="modalContent">
+            <img src="{{ url_for('static', filename='images/clouds.png') }}" alt="Error Icon" class="modalIcon">
+            <h3>City Not Found</h3>
+            <p>We couldn't find the city you searched for. Please check the spelling and try again.</p>
+            <button id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+# 🔐 Environment variables
+.env
+.env.*
+
+# 🐍 Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 📦 Virtual environment folders
+venv/
+env/
+ENV/
+.venv/
+
+# 🧪 Flask instance folder (contains secrets/config)
+instance/
+
+# 🔧 Flask cache / session (if used)
+*.log
+*.sqlite3
+*.db
+
+# 🗂️ IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 🐧 OS files
+.DS_Store
+Thumbs.db
+
+# 📦 Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# 🧪 Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# 🧾 Logs
+*.log
+
+# 📁 Temporary files
+tmp/
+temp/
+
+# 🔥 Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# 🚀 Gunicorn / deployment
+*.pid
+*.sock

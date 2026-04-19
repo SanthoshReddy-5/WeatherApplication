@@ -1,0 +1,506 @@
+:root {
+    --bg-overlay: rgba(0, 0, 0, 0.25);
+    --glass-bg: rgba(255, 255, 255, 0.08); /* Slightly more transparent */
+    --glass-border: rgba(255, 255, 255, 0.1); /* Softer border */
+    --glass-blur: blur(15px);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent: #00d2ff;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    --radius-lg: 30px;
+    --radius-md: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-image: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-overlay);
+    z-index: -1;
+}
+
+/* Glass Card Base Component */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    background-clip: padding-box; /* Prevents background color from bleeding into border */
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+}
+
+.navBar {
+    height: 80px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.searchBarContent {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchBar {
+    width: 100%;
+    padding: 12px 25px;
+    padding-right: 60px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.05); /* Softer initial background */
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    color: white;
+    outline: none;
+    transition: var(--transition);
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Remove default search clear/magnifier buttons that can look like white boxes */
+.searchBar::-webkit-search-decoration,
+.searchBar::-webkit-search-cancel-button,
+.searchBar::-webkit-search-results-button,
+.searchBar::-webkit-search-results-decoration {
+    display: none;
+}
+
+.searchBar:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.1); /* Minimal glow */
+}
+
+.searchBar::placeholder {
+    color: var(--text-secondary);
+}
+
+.searchIcon {
+    position: absolute;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0.8;
+}
+
+.searchIcon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.mainContent {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    padding: 1rem 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.leftContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.currentTemp {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.currentTemp h5 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.currentTemp #temperature {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: -0.5rem 0;
+}
+
+.currentTemp #description {
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    color: var(--text-secondary);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: var(--glass-border);
+}
+
+.displayDate, .displayTime {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+.calendarIcon, .clockIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.nextFiveDays h5 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.fiveDaysDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fiveDays {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fiveDays:last-child {
+    border-bottom: none;
+}
+
+.fiveDaysIcon {
+    width: 32px;
+    height: 32px;
+}
+
+.rightContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.topSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.topChilds {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.topChildIcons {
+    width: 40px;
+    height: 40px;
+}
+
+.topChilds h5 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.topChilds p {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.midSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.midChilds h5 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.airQualityDiv {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.midChildIcons {
+    width: 60px;
+    height: 60px;
+}
+
+.airQualitySections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    flex: 1;
+}
+
+.airQualitySections h6 {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.airQualitySections p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.sunConditionsDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.sunRiseDiv, .sunSetDiv {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sunIcon, .moonIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.sunConditionsDiv h6 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.sunConditionsDiv p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.bottomSection {
+    width: 100%;
+}
+
+.today h5 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.todayDiv {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.todayRow {
+    flex: 0 0 calc(16.66% - 1.5rem);
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.todayRow:hover {
+    background: rgba(255, 255, 255, 0.08); /* More subtle hover */
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.todayRow img {
+    width: 45px;
+    height: 45px;
+}
+
+.timeDisp {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.tempDisp {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContent {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modalIcon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.modalContent h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modalContent p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.modalContent button {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.modalContent button:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* Responsiveness Modernized */
+
+/* Large Screens */
+@media (max-width: 1400px) {
+    .mainContent {
+        grid-template-columns: 320px 1fr;
+    }
+}
+
+/* Tablet / Small Laptop */
+@media (max-width: 1024px) {
+    .mainContent {
+        grid-template-columns: 1fr;
+        padding-bottom: 4rem;
+    }
+    
+    .leftContent {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .midSection {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    .navBar {
+        height: 70px;
+    }
+
+    .mainContent {
+        gap: 1.5rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+    }
+
+    .currentTemp h5 {
+        font-size: 2rem;
+    }
+
+    .currentTemp #temperature {
+        font-size: 3rem;
+    }
+
+    .topSection {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .airQualityDiv {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .sunConditionsDiv {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .topSection {
+        grid-template-columns: 1fr;
+    }
+}
